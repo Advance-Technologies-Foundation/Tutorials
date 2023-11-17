@@ -1,0 +1,104 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!markdown
+
+## [Installing Creatio with CLIO]
+
+Clio provides functionality to install Creatio on a local machine using a zip file or an unzipped folder.
+
+>Supported Net6 and NetFramework platforms with MsSql or PostgreSQL databases
+
+<!-- Named links -->
+
+[Installing Creatio with CLIO]:https://github.com/Advance-Technologies-Foundation/clio/blob/master/README.md#installation-of-creatio-using-clio
+
+#!markdown
+
+## Prerequisites
+
+- [Rancher Desktop] - Container Management and Kubernetes on the Desktop
+	- [Install Linux on Windows with WSL]
+- [Creatio required components for Windows]
+- <details>
+  <summary><a href="https://learn.microsoft.com/en-us/windows/wsl/wsl-config">Consider WSL2 resources configuration - <strong>Windows</strong> only</a></summary>
+
+  On Windows configure resources with [.wlsconfig](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) file.
+  Sample config:
+  ```
+  [wsl2]
+  memory=8GB # Limits VM memory in WSL 2 to 16 GB
+  processors=4 # Makes the WSL  VM use 8 virtual processors
+  ```
+  
+  </details>
+
+
+
+<!-- Named Links -->
+[Rancher Desktop]:https://rancherdesktop.io/
+[Rancher Desktop Installation]: https://docs.rancherdesktop.io/getting-started/installation
+[Install Linux on Windows with WSL]: https://learn.microsoft.com/en-us/windows/wsl/install
+[Creatio required components for Windows]: https://academy.creatio.com/docs/user/on_site_deployment/application_server_on_windows/check_required_components/enable_required_windows_components
+
+#!pwsh
+
+# Use Clio to check status if required features
+clio check-windows-features
+
+#!markdown
+
+# Installing required components into Rancher (local kubernetes cluster)
+
+#!pwsh
+
+# Verify kubernetes installation
+kubectl cluster-info
+
+#!markdown
+
+# Deploying required components into K8S cluster
+
+A Kubernetes cluster is a set of nodes that run containerized applications. Containerizing applications packages an app with its dependences and some necessary services. They are more lightweight and flexible than virtual machines. In this way, Kubernetes clusters allow for applications to be more easily developed, moved and managed.
+
+#!pwsh
+
+# Use clio to generate k8s manifests for required components
+clio create-k8-files
+
+#!pwsh
+
+# IMPORTANT - REVIEW generated manifests
+$appsettings = clio externalLink clio://GetAppSettingsFilePath;
+$dir = Get-Item $appsettings | Select-Object -ExpandProperty DirectoryName
+Set-Location -Path $dir/infrastructure
+Get-ChildItem -Path $dir/infrastructure
+
+#!markdown
+
+## Before deploying manifests, make sure your kubectl context is set to Rancher Desktop, otherwise you may deploy into a cluster you did not mean to
+
+#!pwsh
+
+# deploy namespace
+kubectl apply -f clio-namespace.yaml;
+
+# deploy storage class
+kubectl apply -f clio-storage-class.yaml
+
+#!pwsh
+
+# deploy redis
+kubectl apply -f .\redis
+
+#!pwsh
+
+# deploy PostgreSQL with pgAdmin
+kubectl apply -f .\postgres
+kubectl apply -f .\pgadmin
+
+#!pwsh
+
+# deploy mssql server
+kubectl apply -f .\mssql

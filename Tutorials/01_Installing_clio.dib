@@ -1,0 +1,71 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!markdown
+
+## Installing CLIO
+
+Clio is a command-line interface (CLI) utility designed to facilitate integration of the Creatio platform with various development and continuous integration/continuous deployment (CI/CD) tools. Clio is a product release under ATF umbrella and is distributed under the MIT license. Other tools under the umbrella include:
+
+| Prodcut                                                                                                                |Description                                          |
+| :---                                                                                                                   | :---                                                |
+|**[clio-explorer](https://marketplace.visualstudio.com/items?itemName=AdvanceTechnologiesFoundation.clio-explorer)**    |Visual Studio code extension for clio.               |
+|**[clio-Oauth-helper](https://microsoftedge.microsoft.com/addons/detail/clio-helper/mljogcololcfcmopabfoadfmkoonbleh)** |Microsoft Edge extension to facilitate OAuth token   |
+|**[creatio.client](https://www.nuget.org/packages/creatio.client)**                                                     |REST Client to Connect to Creatio (Nuget)            |
+|**[Respository](https://www.nuget.org/packages/ATF.Repository)**                                                        |(ORM) solution for Creatio (Nuget)                   |
+
+#!markdown
+
+## Prerequisites
+
+- [dotnet version 6.0 or higher](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
+Follow the [installation instructions] for your OS
+
+You can validate installation with the following command
+
+[installation instructions]: https://learn.microsoft.com/en-us/dotnet/core/install/
+
+#!pwsh
+
+dotnet --list-sdks
+
+#!markdown
+
+## [Installing clio]
+
+
+[Installing clio]: https://github.com/Advance-Technologies-Foundation/clio#installation-and-features
+
+#!pwsh
+
+dotnet tool update clio -g;
+
+#!markdown
+
+For Windows users only, register clio with Explorer [context menu]
+
+[context menu]:https://github.com/Advance-Technologies-Foundation/clio#context-menu
+
+#!pwsh
+
+clio ver;
+clio register;
+
+#!markdown
+
+## Post installation
+
+Clio save its own data in `appsettings.json` file.
+See the file and path
+
+#!pwsh
+
+# Display content of appsetting file
+clio apps
+
+#!pwsh
+
+# Get path to app settings file
+clio externalLink clio://GetAppSettingsFilePath
