@@ -102,3 +102,77 @@ kubectl apply -f .\pgadmin
 
 # deploy mssql server
 kubectl apply -f .\mssql
+
+#!markdown
+
+# Review installed components
+
+
+|Name      |Path                   |Description                                                |
+|:--       |:--                    |:--                                                        |
+|pgAdmin   | http://localhost:1080 | username: root@creatio.com password: root                 |
+|PostgreSQL| localhost:5432        | username: postgres password: root (postgres-secrets.yaml) |
+|Redis     | localhost:6379        | Anonymous access, 100 db limit                            |
+
+#!markdown
+
+# Install Creatio into new Infrastructure
+
+There are two primary ways to install new Creatio instance.
+- With the help of Context menu
+- From CLI
+
+#!markdown
+
+## Install Creatio from Context menu
+
+Right click on the `zip` file you would like to install and select `clio: deploy Creatio`
+
+![deploy context menu](../Assets/deploy_from_context_menu.png)
+
+
+A terminal window will appear, follow the prompts.
+- Enter a site name: This will become IIS site name and Database name (i.e. demo)
+- Enter Site port: This will make Creatio available on this port (i.e. 40015)
+
+![deploy prompts](../Assets/deploy_prompts.png)
+
+This will trigger clio to install creatio from zip file. This operation will take some time to complete.
+> Be patient ...
+
+When operation completes, default browser will open newly installed Creatio. 
+You can login with Supervisor credentials.
+
+
+![deploy completed](../Assets/deploy_completed.png)
+
+#!markdown
+
+## Install Creatio from CLI
+
+#!pwsh
+
+clio deploy-creatio --SiteName demo-two --SitePort 40020 --ZipFile C:\CreatioProductBuild\8.1.0.6820_Studio_Softkey_PostgreSQL_ENU.zip
+
+#!markdown
+
+> Please note that clio will make a local copy of a zip file when its not on your local machine. This will take some time to complete. It is **SAFE** to install from a network share.
+
+#!markdown
+
+## View results in Clio Explorer
+
+You can now open `Clio explorer` vscode extension to view installed Creatio
+
+![vscode-new-env](../Assets/vscode-new-env.png)
+
+
+Hover over `demo` environment click on three dots and select Install clio api, extend creatio with Clio API package (cliogate)
+
+![Alt text](../Assets/installl-clio-api.png)
+
+Alternatively you can install cliogate from CLI
+
+#!pwsh
+
+clio install-gate -e demo

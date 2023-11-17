@@ -1,0 +1,58 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!markdown
+
+Create new empty directory where WORKSPACE will be created. 
+Clio will not create workspace when directory is not empty.
+
+#!pwsh
+
+New-Item -ItemType Directory -Force -Path "./Workspace";
+cd "./Workspace";
+
+#!markdown
+
+Use Clio to [Create new workplace](https://github.com/Advance-Technologies-Foundation/clio#workspaces)
+
+#!pwsh
+
+clio createw;
+
+#!markdown
+
+<details>
+<summary>Directory structure will be created as below:</summary>
+
+📦Workspace</br>
+ ┣ 📂.application</br>
+ ┣ 📂.clio - Contains clio configuration files</br>
+ ┃ ┣ [📜clioignore](./Workspace/.clio/clioignore) - Defines ignore files when generating **gz** archive file, works same as **.gitignore**</br>
+ ┃ ┣ 📜placeholder.txt - you can delete it</br>
+ ┃ ┣ [📜workspaceEnvironmentSettings.json](./Workspace/.clio/workspaceEnvironmentSettings.json) - Defines mapping between the current workspace and Creatio instance</br>
+ ┃ ┗ [📜workspaceSettings.json](./Workspace/.clio/workspaceSettings.json) - Defines list of packages that the workspace will manage</br>
+ ┣ 📂.nuget</br>
+ ┣ 📂.solution</br>
+ ┣ 📂builds</br>
+ ┣ 📂packages</br>
+ ┣ 📂tasks</br>
+ ┃ ┣ [📜build-framework-sdk.cmd](./Workspace/tasks/build-framework-sdk.cmd)</br>
+ ┃ ┣ [📜build-framework.cmd](./Workspace/tasks/build-framework.cmd)</br>
+ ┃ ┣ 📜build-netcore-sdk.cmd</br>
+ ┃ ┣ 📜build-netcore-sdk.sh</br>
+ ┃ ┣ 📜build-netcore.cmd</br>
+ ┃ ┣ 📜build-netcore.sh</br>
+ ┃ ┣ 📜env-to-git.cmd</br>
+ ┃ ┣ 📜git-init-dev-branch.cmd</br>
+ ┃ ┣ 📜git-init-workspace.cmd</br>
+ ┃ ┣ 📜git-to-env.cmd</br>
+ ┃ ┣ [📜open-solution-framework-sdk.cmd](./Workspace/tasks/open-solution-framework-sdk.cmd) - Opens solution targeting **net472** with CreatioSDK nuget</br>
+ ┃ ┣ [📜open-solution-framework.cmd](./Workspace/tasks/open-solution-framework.cmd) - Opens solution targeting **net472** with direct dll refs (no nuget)</br>
+ ┃ ┣ [📜open-solution-netcore-sdk.cmd](./Workspace/tasks/open-solution-netcore-sdk.cmd)- Opens solution targeting **netstandard2.0** with CreatioSDK nuget</br>
+ ┃ ┣ [📜open-solution-netcore.cmd](./Workspace/tasks/open-solution-netcore.cmd) - Opens solution targeting **netstandard2.0** with direct dll refs (no nuget)</br>
+ ┃ ┣ 📜run-all-platfrom-build-sdk.cmd</br>
+ ┃ ┗ 📜run-all-platfrom-build.cmd</br>
+ ┗ [📜.gitlab-ci.yml](./Workspace/.gitlab-ci.yml)</br>
+
+ </details>
