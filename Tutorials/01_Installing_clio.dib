@@ -67,5 +67,10 @@ clio apps
 
 #!pwsh
 
+#open appsetting,json in default editor
+clio cfg open
+
+#!pwsh
+
 # Get path to app settings file
 clio externalLink clio://GetAppSettingsFilePath
