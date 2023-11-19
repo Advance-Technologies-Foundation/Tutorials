@@ -1,5 +1,8 @@
 # Interactive tutorials
 
+This repository is a collection of [Polyglot Notebook] tutorials for Creatio developers with Clio.
+
+
 
 ![Alt text](./Assets/image.png)
 
@@ -20,7 +23,7 @@
 [Installing clio]: ./Tutorials/01_Installing_clio.dib
 [Installing Creatio]: ./Tutorials/02_Installing_creatio.dib
 [Development with Workspace]: ./Tutorials/03_Development_with_workspace.dib
-
+[Polyglot Notebook]:https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode
 
 [Lesson 1]:https://youtu.be/jraY_iOWbwQ
 [Lesson 2]:https://youtu.be/Y5vWqeOwWyM
