@@ -6,6 +6,8 @@
 
 ## [Installing Creatio with CLIO]
 
+[Video Tutorial](https://youtu.be/Y5vWqeOwWyM)
+
 Clio provides functionality to install Creatio on a local machine using a zip file or an unzipped folder.
 
 >Supported Net6 and NetFramework platforms with MsSql or PostgreSQL databases
