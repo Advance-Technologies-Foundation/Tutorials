@@ -12,7 +12,7 @@ This repository is a collection of [Polyglot Notebook] tutorials for Creatio dev
 | 1 | [Installing clio]                  | Installing prerequisites and clio | [Tutorial][Lesson 1] |
 | 2 | [Installing Creatio]               | Installing Creatio with Clio      | [Tutorial][Lesson 2] |
 | 3 | [Development with Workspace]       | Start development process         | In Progress          |
-| 3 | [ATF repository for external Apps] | Use of ATF.Repository             | In Progress          |
+| 4 | [ATF repository for external Apps] | Use of ATF.Repository             | [Tutorial][Lesson 4] |
 
 
 
@@ -28,5 +28,6 @@ This repository is a collection of [Polyglot Notebook] tutorials for Creatio dev
 
 [Lesson 1]:https://youtu.be/jraY_iOWbwQ
 [Lesson 2]:https://youtu.be/Y5vWqeOwWyM
+[Lesson 4]:https://youtu.be/TuDFA-UYHps
 
 [Data Integration through ATF repository]: https://youtu.be/

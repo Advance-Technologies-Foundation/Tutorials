@@ -107,4 +107,4 @@ dotnet run --project CreatioDataIntegration.csproj
 
 #!pwsh
 
-dotnet run --project CreatioDataIntegration.csproj
+dotnet run --project "C:\Projects\Tutorials\L4\CreatioDataIntegration\CreatioDataIntegration.csproj"
