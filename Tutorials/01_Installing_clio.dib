@@ -78,4 +78,4 @@ clio externalLink clio://GetAppSettingsFilePath
 #!pwsh
 
 # to uninstall clio
-dotnet tool uninstall clio
+dotnet tool uninstall clio -g
